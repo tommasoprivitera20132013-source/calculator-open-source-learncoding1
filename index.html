@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Calculator Starter</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="layout">
+    <section class="hero-card">
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="eyebrow">Open-source starter project</p>
+        <h1 data-i18n="title">Calculator with code explanations</h1>
+        <p class="intro" data-i18n="intro">
+          This small app is built to be easy to read, remix, and publish on GitHub.
+        </p>
+      </div>
+
+      <div class="language-switcher" aria-label="Language switcher">
+        <button type="button" class="language-button is-active" data-language-button data-language="en">English</button>
+        <button type="button" class="language-button" data-language-button data-language="it">Italiano</button>
+      </div>
+    </section>
+
+    <section class="content-grid">
+      <article class="calculator-card">
+        <div class="screen-panel">
+          <p class="screen-label" data-i18n="screenLabel">Expression</p>
+          <div class="screen" id="display" aria-live="polite">0</div>
+        </div>
+
+        <div class="button-grid" aria-label="Calculator buttons">
+          <button type="button" class="action-button soft" data-action="clear">C</button>
+          <button type="button" class="action-button soft" data-action="delete">DEL</button>
+          <button type="button" class="action-button soft" data-action="percent">%</button>
+          <button type="button" class="action-button accent" data-value="/">/</button>
+
+          <button type="button" class="action-button" data-value="7">7</button>
+          <button type="button" class="action-button" data-value="8">8</button>
+          <button type="button" class="action-button" data-value="9">9</button>
+          <button type="button" class="action-button accent" data-value="*">*</button>
+
+          <button type="button" class="action-button" data-value="4">4</button>
+          <button type="button" class="action-button" data-value="5">5</button>
+          <button type="button" class="action-button" data-value="6">6</button>
+          <button type="button" class="action-button accent" data-value="-">-</button>
+
+          <button type="button" class="action-button" data-value="1">1</button>
+          <button type="button" class="action-button" data-value="2">2</button>
+          <button type="button" class="action-button" data-value="3">3</button>
+          <button type="button" class="action-button accent" data-value="+">+</button>
+
+          <button type="button" class="action-button wide" data-value="0">0</button>
+          <button type="button" class="action-button" data-value=".">.</button>
+          <button type="button" class="action-button accent" data-action="calculate">=</button>
+        </div>
+      </article>
+
+      <aside class="notes-card">
+        <section>
+          <h2 data-i18n="howToOpenTitle">How to open it</h2>
+          <ol class="notes-list">
+            <li data-i18n="openStepOne">Download or clone the repository from GitHub.</li>
+            <li data-i18n="openStepTwo">Open the folder and double-click <code>index.html</code>.</li>
+            <li data-i18n="openStepThree">If you want a website link, enable GitHub Pages in the repository settings.</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2 data-i18n="codeGuideTitle">How the code is organized</h2>
+          <ul class="notes-list">
+            <li data-i18n="codeGuideOne"><code>index.html</code> contains the page structure and the calculator buttons.</li>
+            <li data-i18n="codeGuideTwo"><code>styles.css</code> controls colors, layout, and responsive design.</li>
+            <li data-i18n="codeGuideThree"><code>script.js</code> handles calculator logic and the language switcher.</li>
+          </ul>
+        </section>
+
+        <section class="tip-box">
+          <h2 data-i18n="tipTitle">Starter tip</h2>
+          <p data-i18n="tipText">
+            Change one small part at a time. For example: add a square root button, change the colors, or support more languages.
+          </p>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
