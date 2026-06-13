@@ -279,6 +279,8 @@ export default function ChatPage() {
       setActiveChatId(chatId)
     }
 
+    if (!chatId) return
+
     const userMessage: Message = {
       id: crypto.randomUUID(),
       chat_id: chatId,
@@ -312,7 +314,7 @@ export default function ChatPage() {
       // Stream
       const assistantMessage: Message = {
         id: crypto.randomUUID(),
-        chat_id: chatId,
+        chat_id: chatId as string,
         user_id: userId!,
         role: 'assistant',
         content: '',
@@ -339,7 +341,7 @@ export default function ChatPage() {
       // Auto-rename chat if it's still "New Chat"
       const currentChat = chats.find((c) => c.id === chatId)
       if (currentChat?.title === 'New Chat') {
-        renameChat(chatId, content.slice(0, 40))
+        renameChat(chatId as string, content.slice(0, 40))
       }
     } catch (err: unknown) {
       toast.error(err instanceof Error ? err.message : 'Failed to send message')
