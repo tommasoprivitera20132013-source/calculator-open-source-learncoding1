@@ -1,79 +1,103 @@
-# Open Calculator Starter
+# AURA — The most powerful AI in the world
 
-An open-source calculator made to be easy to study, modify, and publish.
+A premium full-stack AI-powered SaaS platform — creative studio + study tool + productivity app.
 
-The code is written in English. The interface supports English and Italian. The project also includes a simple Italian guide.
+## Features
 
-Italian setup guide: [README.it.md](README.it.md)  
-English code guide: [docs/CODE_GUIDE.md](docs/CODE_GUIDE.md)  
-Italian code guide: [docs/GUIDA_CODICE.md](docs/GUIDA_CODICE.md)
+**Creative Tools**
+- AURA Brain — Real-time AI chat (Claude)
+- AURA Vision — Image generation (FLUX / SD XL via Replicate)
+- AURA Music — Music generation (MusicGen via Replicate)
+- AURA Write — Text generation (essays, lyrics, scripts, emails)
+- AURA Code — Code assistant (generate, explain, fix, optimize)
+- AURA Video — Video generation (Ultra plan only)
 
-## Open it locally
+**Study Tools**
+- AURA Notebook — AI-powered rich text editor
+- AURA Flashcards — AI-generated flashcards with spaced repetition
+- AURA Quiz — AI-generated quizzes with score tracking
+- AURA Mind Map — Interactive AI mind maps
+- AURA PDF Chat — Chat with your documents
+- AURA Explain — Explain any concept at 3 levels
 
-This project does not need build tools.
+**Productivity**
+- AURA Tasks — Kanban board with AI task generation
+- AURA Translate — 30+ languages with tone control
 
-1. Download the repository as a ZIP file or clone it:
+## Tech Stack
+
+- **Frontend**: Next.js 14 (App Router) + TypeScript + Tailwind CSS
+- **Auth & DB**: Supabase
+- **Payments**: Stripe
+- **AI**: Anthropic Claude API
+- **Media**: Replicate (images, music, video)
+- **Animations**: Framer Motion
+- **State**: Zustand
+
+## Setup
+
+### 1. Clone and install
 
 ```bash
-git clone https://github.com/your-name/your-repo.git
+npm install
 ```
 
-2. Open the project folder.
-3. Double-click `index.html`.
-
-You can also run a tiny local server if you prefer:
+### 2. Environment variables
 
 ```bash
-python -m http.server 8000
+cp .env.example .env.local
 ```
 
-Then open `http://localhost:8000`.
+Fill in all variables in `.env.local`:
 
-## Upload it to GitHub for the first time
+| Variable | Description |
+|---|---|
+| `ANTHROPIC_API_KEY` | Anthropic API key |
+| `REPLICATE_API_TOKEN` | Replicate API token |
+| `STRIPE_SECRET_KEY` | Stripe secret key |
+| `STRIPE_WEBHOOK_SECRET` | Stripe webhook secret |
+| `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | Stripe publishable key |
+| `STRIPE_PRICE_PRO_ID` | Stripe price ID for Pro plan |
+| `STRIPE_PRICE_ULTRA_ID` | Stripe price ID for Ultra plan |
+| `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anon key |
+| `SUPABASE_SERVICE_ROLE_KEY` | Supabase service role key |
+| `NEXT_PUBLIC_APP_URL` | Your app URL (e.g. https://yourapp.com) |
 
-If you are starting from this folder on your computer, these are the basic commands:
+### 3. Supabase setup
+
+1. Create a new Supabase project
+2. Run `supabase-schema.sql` in the SQL editor
+3. Enable Google OAuth in Authentication → Providers
+4. Set redirect URL to `https://yourapp.com/auth/callback`
+
+### 4. Stripe setup
+
+1. Create two subscription products in Stripe:
+   - Pro: €9.99/month
+   - Ultra: €29.99/month
+2. Add price IDs to `.env.local`
+3. Set up webhook pointing to `/api/stripe/webhook`
+4. Listen for: `checkout.session.completed`, `customer.subscription.updated`, `customer.subscription.deleted`
+
+### 5. Run
 
 ```bash
-git init
-git add .
-git commit -m "Initial calculator starter"
-git branch -M main
-git remote add origin https://github.com/your-name/your-repo.git
-git push -u origin main
+npm run dev
 ```
 
-## Publish it from GitHub
+## Subscription Plans
 
-If you want this calculator to open as a website directly from GitHub, use GitHub Pages.
+| Plan | Price | Requests/day | Models |
+|---|---|---|---|
+| Free | €0 | 10 | Claude Haiku, SD XL |
+| Pro | €9.99/mo | 500 | Claude Sonnet, FLUX 1.1 |
+| Ultra | €29.99/mo | ∞ | Claude Opus 4, FLUX 1.1 Pro |
 
-1. Push these files to a GitHub repository.
-2. Open the repository on GitHub.
-3. Go to `Settings` -> `Pages`.
-4. In `Build and deployment`, choose `Deploy from a branch`.
-5. Select branch `main` and folder `/ (root)`.
-6. Save the settings.
-7. GitHub will generate a public website link for your calculator.
+## Deploy on Vercel
 
-Official GitHub Pages docs:
-- https://docs.github.com/en/pages/quickstart
-- https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
+1. Push to GitHub
+2. Import in Vercel
+3. Add all environment variables
+4. Deploy
 
-## Project structure
-
-- `index.html`: page structure and text placeholders
-- `styles.css`: visual design and responsive layout
-- `script.js`: calculator logic and language switcher
-- `docs/CODE_GUIDE.md`: simple explanation of the code in English
-- `README.it.md`: Italian setup guide
-- `docs/GUIDA_CODICE.md`: simple explanation of the code in Italian
-
-## Good first changes
-
-- Add a square root button
-- Add memory buttons
-- Change the color palette
-- Add a third language
-
-## License
-
-This project uses the MIT License.
