@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { stripe } from '@/lib/stripe'
-import { createServiceClient } from '@/lib/supabase'
+import { createServiceClient } from '@/lib/supabase-server'
 import Stripe from 'stripe'
 
 export async function POST(request: NextRequest) {
@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
 
   switch (event.type) {
     case 'checkout.session.completed': {
-      const session = event.data.object as Stripe.CheckoutSession
+      const session = event.data.object as Stripe.Checkout.Session
       const { user_id, plan } = session.metadata ?? {}
       if (user_id && plan) {
         await supabase.from('users').update({

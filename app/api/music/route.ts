@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createServerSupabaseClient } from '@/lib/supabase'
+import { createServerSupabaseClient } from '@/lib/supabase-server'
 import { replicate, MUSIC_MODEL } from '@/lib/replicate'
 import { checkRateLimit } from '@/lib/rateLimit'
 import { Plan, MusicDuration } from '@/types'

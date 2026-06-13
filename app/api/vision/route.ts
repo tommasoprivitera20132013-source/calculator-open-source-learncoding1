@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createServerSupabaseClient } from '@/lib/supabase'
+import { createServerSupabaseClient } from '@/lib/supabase-server'
 import { replicate, IMAGE_MODELS, STYLE_PROMPTS } from '@/lib/replicate'
 import { checkRateLimit } from '@/lib/rateLimit'
 import { Plan, ImageStyle, ImageResolution } from '@/types'

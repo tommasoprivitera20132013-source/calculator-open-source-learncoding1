@@ -1,13 +1,13 @@
 'use client'
 
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { createClient } from '@/lib/supabase'
 import toast from 'react-hot-toast'
 
-export default function LoginPage() {
+function LoginForm() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
@@ -114,5 +114,13 @@ export default function LoginPage() {
         </div>
       </motion.div>
     </div>
+  )
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-[#0a0a0a]" />}>
+      <LoginForm />
+    </Suspense>
   )
 }

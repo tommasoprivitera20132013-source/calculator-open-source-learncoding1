@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createServerSupabaseClient } from '@/lib/supabase'
+import { createServerSupabaseClient } from '@/lib/supabase-server'
 import { anthropic, SYSTEM_PROMPTS } from '@/lib/anthropic'
 import { checkRateLimit } from '@/lib/rateLimit'
 import { Plan, CodeLanguage, CodeMode } from '@/types'

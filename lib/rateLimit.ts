@@ -1,4 +1,4 @@
-import { createServiceClient } from './supabase'
+import { createServiceClient } from './supabase-server'
 import { Plan, Usage } from '@/types'
 import { PLAN_LIMITS } from './utils'
 

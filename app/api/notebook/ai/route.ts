@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createServerSupabaseClient } from '@/lib/supabase'
+import { createServerSupabaseClient } from '@/lib/supabase-server'
 import { anthropic } from '@/lib/anthropic'
 import { checkRateLimit } from '@/lib/rateLimit'
 import { Plan } from '@/types'
